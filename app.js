@@ -3,9 +3,13 @@ const express    = require("express"),
 	  bodyParser = require('body-parser'),
 	  mongoose   = require('mongoose');
 
-// connect to mongodb
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public")); // serve public folder
+//console.log(__dirname); ==> /workspace/YelpCamp/v1
+
+// connect to mongodb
 mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true, useUnifiedTopology: true});
 
 // check if mongodb is connected
