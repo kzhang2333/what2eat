@@ -1,7 +1,7 @@
 {
   "name": "YelpCamp",
   "version": "2.0.0",
-  "description": "YelpCamp V2",
+  "description": "YelpCamp V3",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +13,8 @@
     "ejs": "^3.1.2",
     "express": "^4.17.1",
     "mongoose": "^5.9.13"
+  },
+  "devDependencies": {
+    "locus": "^2.0.4"
   }
 }
