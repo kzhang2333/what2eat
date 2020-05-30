@@ -1,5 +1,5 @@
 body {
-	background: purple;
+	background: white;
 }
 
 .thumbnail img {
@@ -8,6 +8,7 @@ body {
 
 .thumbnail {
 	padding: 0;
+	// border: 0;
 }
 
 .thumbnail .caption-full {
