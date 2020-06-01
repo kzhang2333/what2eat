@@ -3,7 +3,8 @@ const express    = require("express"),
 	  bodyParser = require('body-parser'),
 	  mongoose   = require('mongoose'),
 	  passport   = require('passport'),
-	  LocalStrategy = require('passport-local');
+	  LocalStrategy = require('passport-local'),
+	  methodOverride = require("method-override");
 
 // requiring routes
 let commentRoutes   = require("./routes/comments"),
@@ -17,10 +18,11 @@ let Comment    = require('./models/comment');
 let User	   = require('./models/user');
 //seedDB();
 
-// config express
+// config app/express
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public")); // serve public folder
+app.use(methodOverride("_method"));
 
 // PASSPORT CONFIGRATION
 app.use(require("express-session")({
