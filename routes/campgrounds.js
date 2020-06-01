@@ -22,10 +22,15 @@ router.post("/", isLoggedIn, (req, res) => {
 	let name = req.body.name;
 	let url = req.body.image;
 	let description = req.body.description;
+	let author = {
+		id: req.user._idl,
+		username: req.user.username
+	}
 	Campground.create({
 		name: name,
 		image: url,
-		description: description
+		description: description,
+		author: author
 	}, function(err, newCampground) {
 		if (err) {
 			console.log("Error when adding newCampground");
