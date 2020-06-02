@@ -1,3 +1,8 @@
+绝对不能在route里用空格、回车等等。
+
+
+
+
 J10 - https://thelexicans.files.wordpress.com/2013/12/j10_3view_thumb1.jpg
 --------------------------------------
 The program was authorized by Deng Xiaoping in the 1980s who allocated ¥ 0.5 billion to develop an indigenous aircraft. Work on Project #10[1] started several years later in January 1988,[9] as a response to the Mikoyan MiG-29 and Sukhoi Su-27 then being introduced by the USSR, and F-15, F-16 already in service in the United States. Development was delegated to the 611 Institute, also known as the Chengdu Aircraft Design Institute and Song Wencong was nominated as the chief designer, as he had previously been the chief designer of the J-7III. The aircraft was initially designed as a specialized fighter, but later became a multirole aircraft capable of both air-to-air combat and ground attack missions.

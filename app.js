@@ -39,7 +39,8 @@ passport.deserializeUser(User.deserializeUser());
 // this is a middleware running for EVERY routes
 // to make username accessable for nav-bar
 app.use(function(req, res, next) {
-	res.locals.currentUser = req.user; // make it avaliable 
+	res.locals.currentUser = req.user; // req.user is because passport put currentuser info into reqest
+	// then "currentUser" is a local variable point to req.user, like in ejs file
 	next();
 })
 
