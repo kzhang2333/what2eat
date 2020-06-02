@@ -11,7 +11,8 @@ router.get("/", (req, res) => {
 		} else {
 			res.render("campgrounds/index", {
 				campgrounds: allCampgrounds,
-				currentUser: req.user
+				currentUser: req.user,
+				page: 'campgrounds'
 			});	
 		}
 	})
