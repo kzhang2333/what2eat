@@ -4,7 +4,8 @@ const express    = require("express"),
 	  mongoose   = require('mongoose'),
 	  passport   = require('passport'),
 	  LocalStrategy = require('passport-local'),
-	  methodOverride = require("method-override");
+	  methodOverride = require("method-override"),
+	  flash			 = require('connect-flash');
 
 // requiring routes
 let commentRoutes   = require("./routes/comments"),
@@ -23,6 +24,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public")); // serve public folder
 app.use(methodOverride("_method"));
+app.use(flash());
 
 // PASSPORT CONFIGRATION
 app.use(require("express-session")({
@@ -39,6 +41,8 @@ passport.deserializeUser(User.deserializeUser());
 // this is a middleware running for EVERY routes
 // to make username accessable for nav-bar
 app.use(function(req, res, next) {
+	res.locals.error = req.flash("error"); // "error" is the key
+	res.locals.success = req.flash("success"); // "success" is the key
 	res.locals.currentUser = req.user; // req.user is because passport put currentuser info into reqest
 	// then "currentUser" is a local variable point to req.user, like in ejs file
 	next();
