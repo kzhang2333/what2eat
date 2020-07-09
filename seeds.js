@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let Campground = require('./models/campground'),
+let Campground = require('./models/recipe'),
 	Comment = require('./models/comment');
 
 // fake example data

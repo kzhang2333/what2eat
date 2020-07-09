@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-let campgroundSchema = new mongoose.Schema({
+let recipeSchema = new mongoose.Schema({
 	name: String,
 	image: String,
 	description: String,
@@ -19,5 +19,5 @@ let campgroundSchema = new mongoose.Schema({
 	}
 });
 
-let Campground = mongoose.model("Campground", campgroundSchema);
-module.exports = Campground;
+let Recipe = mongoose.model("Recipe", recipeSchema);
+module.exports = Recipe;
