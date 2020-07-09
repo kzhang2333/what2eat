@@ -1,8 +1,8 @@
 <%- include("../partials/header") %>
 <div class="row">
-	<h1 style="text-align: center">Add new comment to <%= campground.name %></h1>
+	<h1 style="text-align: center">Add new comment to <%= recipe.name %></h1>
 	<div style="width: 30%; margin: 25px auto;">
-		<form action="/campgrounds/<%= campground.id %>/comments" method="POST">
+		<form action="/recipes/<%= recipe.id %>/comments" method="POST">
 			<div class="form-group">
 				<input class="form-control" type="text" name="text" placeholder="text">
 			</div>
@@ -10,7 +10,7 @@
 				<button class="btn btn-lg btn-default btn-block">submit</button>
 			</div>
 		</form>
-		<a href="/campgrounds">Go back</a>
+		<a href="/recipes">Go back</a>
 	</div>
 
 

@@ -9,11 +9,11 @@ const express    = require("express"),
 
 // requiring routes
 let commentRoutes   = require("./routes/comments"),
-	camgroundRoutes = require("./routes/campgrounds"),
+	recipeRoutes = require("./routes/recipes"),
 	indexRoutes 	= require("./routes/index"); 
 	  
 // require data models
-let Campground = require('./models/campground');
+let recipe 	   = require('./models/recipe');
 let seedDB 	   = require('./seeds');
 let Comment    = require('./models/comment');
 let User	   = require('./models/user');
@@ -49,7 +49,7 @@ app.use(function(req, res, next) {
 })
 
 // CONNECT TO MONGODB
-mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb://localhost:27017/what2eat", {useNewUrlParser: true, useUnifiedTopology: true});
 
 // check db
 var db = mongoose.connection;
@@ -60,8 +60,8 @@ db.once('open', function() {
 
 // use routes
 app.use(indexRoutes);
-app.use("/campgrounds", camgroundRoutes); // add "/campgrounds" for all routes from route file
-app.use("/campgrounds/:id/comments", commentRoutes); // remember to use {mergeParams: true}
+app.use("/recipes", recipeRoutes); // add "/recipes" for all routes from route file
+app.use("/recipes/:id/comments", commentRoutes); // remember to use {mergeParams: true}
 
 
 // start server
