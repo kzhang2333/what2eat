@@ -1,17 +1,17 @@
 const express = require("express");
 let router = express.Router({mergeParams: true}); // MUST use {mergeParams: true} here, else can NOT find by id
-let Campground = require("../models/campground");
+let Recipe = require("../models/recipe");
 let Comment = require("../models/comment");
 let middleware = require("../middleware");
 
 // COMMENTS NEW
 router.get("/new", middleware.isLoggedIn, function(req, res) {
 	let id = req.params.id;
-	Campground.findById(id, (err, campground) => {
+	Recipe.findById(id, (err, foundRecipe) => {
 		if (err) {
 			console.log("err!");
 		} else {
-			res.render("comments/new", {campground: campground});
+			res.render("comments/new", {recipe: foundRecipe});
 		}
 	})
 })
@@ -22,20 +22,20 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
 	// Create new comments
 	
 	let id = req.params.id;
-	Campground.findById(id, (err, campground) => {
+	Recipe.findById(id, (err, recipe) => {
 		if (err) {
 			console.log("error");
-			res.redirect("/campgrounds/" + id);
+			res.redirect("/recipes/" + id);
 		} else {
 			Comment.create({text: req.body.text}, function(err, comment) {
 				// put username and id 
 				comment.author.username = req.user.username;
 				comment.author.id = req.user._id;
 				comment.save(); // MUST SAVE comment
-				campground.comments.push(comment);
-				campground.save();
+				recipe.comments.push(comment);
+				recipe.save();
 				req.flash("success", "Comment added!")
-				res.redirect("/campgrounds/" + id);
+				res.redirect("/recipes/" + id);
 			})
 		}
 		
@@ -49,7 +49,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
 			res.redirect("back");
 		} else {
 			res.render("comments/edit", {
-				campground_id: req.params.id,
+				recipe_id: req.params.id,
 				comment: foundComment
 			});
 		}
@@ -66,7 +66,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res) 
 		if (err) {
 			res.redirect("back");
 		} else {
-			res.redirect("/campgrounds/" + req.params.id);
+			res.redirect("/recipes/" + req.params.id);
 		}
 	})
 })

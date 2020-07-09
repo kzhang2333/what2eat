@@ -1,27 +1,27 @@
 <%- include("../partials/header") %>
 <header class="jumbotron">
 	<div class="container">
-		<h1>Welcome To YelpCamp!</h1>
+		<h1>Welcome To What2Eat!</h1>
 		<p>
-			View our hand-picked campgrounds from all over the world
+			View our hand-picked recipes from all over the world
 		</p>
 		<p>
-			<a class="btn btn-primary btn-lg" href="/campgrounds/new">Add a new campground</a>
+			<a class="btn btn-primary btn-lg" href="/recipes/new">Add a new recipe</a>
 		</p>
 	</div>
 
 </header>
 
 <div class="row" style="text: center; display: flex; flex-wrap: wrap;">
-	<% campgrounds.forEach((campground) => { %>
+	<% recipes.forEach((recipe) => { %>
 	<div class="col-md-3 col-sm-6">
 		<div class="thumbnail">
-			<img src="<%= campground.image %>">
+			<img src="<%= recipe.image %>">
 			<div class="caption">
-				<h4><%= campground.name %></h4>
+				<h4><%= recipe.name %></h4>
 			</div>
 			<p>
-				<a href="/campgrounds/<%= campground._id%>" class="btn btn-primary">More info</a>
+				<a href="/recipes/<%= recipe._id%>" class="btn btn-primary">More info</a>
 			</p>
 		</div>			
 	</div>
